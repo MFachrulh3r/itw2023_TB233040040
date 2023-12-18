@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Portofolio Fachrul</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://kit.fontawesome.com/f07e3be0ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Portfolio</h1>
+            <nav>
+                <div class="header"> 
+                    <ul id="sidemenu"> 
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skill">Skill</a></li>
+                        <li><a href="#hobby">Hobby</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <i class="fa-regular fa-circle-xmark" onclick="closemenu()"></i>
+                    </ul>
+                    <i class="fa-solid fa-bars" onclick=openmenu() style="color: white;"></i>
+            </nav>
+    </header>
+
+    <div id="hero">
+        <div class="text">
+            <p>MUHAMMAD FACHRUL HERMAWAN</p>
+            <div class="underline"></div>
+            <p id="text">MAHASISWA UNIVERSITAS PASUNDAN</p>
+        </div>
+    </div>
+
+    <!--about-->
+    <div id="about">
+        <h1>About Me</h1>
+        <div class="quote">
+            <img src="img/foto.jpg" alt="pasfoto">
+            <div class="undrline"></div>
+            <blockquote class="qtext">
+                <p>"Halo semuanya, nama saya Muhamammad Fachrul Hermawan, saya lahir di Purwakarta tanggal 28 Desember, saat ini saya sedang berada di jenjang pendidikan di kuliah dan saya kuliah di Universitas Pasundan. Saya masuk ke dalam program studi Informatika dikarenakan saya ingin menjadi game developer."</p>
+            </blockquote>
+        </div>
+    </div>
+
+    <!--skill-->
+    <div id="skill">
+        <div class="container">
+            <h1>Skill</h1>
+            <div class="sktext">
+                <div>
+                    <h2>Web Design</h2>
+                    <p>Dapat membuat website sederhana dengan menggunakan HTML dan CSS.</p>
+                </div>
+                <div>
+                    <h2>JavaScript User</h2>
+                    <p>Dapat memberikan fungsi dari website sederhana menggunakan JavaScript.</p>
+                </div>
+                <div>
+                    <h2>Editor</h2>
+                    <p>Bisa mengedit video.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--hobby-->
+    <div id="hobby">
+        <div class="container">
+            <h1>Hobby</h1>
+            <div class="htext">
+                <div>
+                    <i class="fa-solid fa-basketball"></i>
+                    <h2>Bermain Bola Basket</h2>
+                </div>
+                <div>
+                    <i class="fa-solid fa-futbol"></i>
+                    <h2>Bermain Sepak Bola</h2>
+                </div>
+                <div>
+                    <i class="fa-solid fa-gamepad"></i>
+                    <h2>Bermain Game</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--contact-->
+    <div id="contact">
+        <div class="container">
+            <div class="context">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="jcontact">Contact Me</h1>
+                        <p><i class="fa-solid fa-envelope"></i>fachrulher706@gmail.com</p>
+                        <p><i class="fa-solid fa-phone"></i>+6285691254846</p>
+                        <div class="socialm">
+                            <a href="https://www.instagram.com/fachrul4008"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-right">
+                        <form name="submit-to-google-sheet">
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <input type="email" name="Email" placeholder="Your Email" required>
+                            <button type="submit" class="tombol">Submit</button>
+                        </form>
+                        <span id="msg"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Created by FachrulHermawan</p>
+    </div>
+
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxxCnH9VZvfINydc8Vm2f7SJRRACR4aJrJQE1oIwckjVjkQbWJYglnUC6gXo1HNRcHN/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Thank you for submit!"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
