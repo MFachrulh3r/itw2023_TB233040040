@@ -139,20 +139,33 @@ header {
     color: white;
 }
 
+.sktext h2 {
+    align-items: flex-end;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    margin-left: 15px;
+    font-size: 25px;
+}
+
+.sktext div p {
+    margin-left: 15px;
+    margin-right: 50px;
+    font-size: 15px;
+}
+
 .sktext div {
     background: #262626;
     padding: 20px 10px;
     font-size: 13px;
     border-radius: 10px;
-    text-align: center;
+    text-align: justify;
     margin: 0px 40px;
     align-items: flex-end;
-    transition: background 0.5s, transform 0.5s;
+    transition: background 0.5s;
 }
 
 .sktext div:hover {
     background: orange;
-    transform: translateY(-10px);
 }
 
 #hobby h1 {
@@ -204,6 +217,10 @@ header {
     margin-bottom: 30px;
 }
 
+.row {
+    display: flex;
+}
+
 .contact-left {
     flex-basis: 35%;
 }
@@ -213,7 +230,8 @@ header {
 }
 
 .contact-left p {
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-left: 50px;
 }
 
 .contact-left p i {
@@ -225,15 +243,28 @@ header {
 .socialm {
     margin-top: 30px;
     font-size: 30px;
-    padding-left: 5%;
+    margin-left: -110px;
+    padding: 1px 0px;
+    text-align: center;
+  
 }
 
 .socialm a {
     color: black;
+    background-color: white;
+    padding: 3px 7px;
+    border-radius: 100%;
+    border: 3px solid black;
+}
+
+.socialm a:hover {
+    color: white;
+    background-color: black;
+    border-radius: 100%;
 }
 
 .contact-right form {
-    width: 100%;
+    width: 150%;
 }
 
 .tombol {
@@ -274,11 +305,12 @@ form input, form textarea {
 }
 
 /* ----small screen---- */
+
 nav .fas {
     display: none;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 768px){
     .hero {
         background-image: url(img/purwkrt.png);
     }
@@ -299,8 +331,9 @@ nav .fas {
         width: 200px;
         height: 100vh;
         padding-top: 50px;
-        z-index: 2;
+        z-index: 3;
         transition: right 0.5s;
+        display: none;
     }
     nav ul li {
         display: block;
